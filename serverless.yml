@@ -21,10 +21,15 @@ provider:
 
 functions:
     fetchContents:
-        name: ${opt:stage}-fetch-contents
+        name: {opt:stage, self:provider.stage}-fetch-contents
         handler: fetch-contents/index.fetch
         events:
             - http:
                 method: post
                 path: /fetch-contents
                 cors: true
+    supportedSources:
+        name: {opt:stage, self:provider.stage}-supported-sources
+        handler: supported-sources/index.list
+        events:
+            - http: get /supported-sources
