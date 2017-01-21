@@ -12,19 +12,17 @@
   "license": "Beerware",
   "dependencies": {
     "cheerio": "^0.22.0",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.7.1",
+    "serverless": "^1.3.0",
     "md5": "^2.2.1",
     "ramda": "^0.22.1",
     "request": "^2.79.0",
     "require-all": "^2.1.0",
     "surge": "^0.18.0",
     "tape": "^4.6.3"
-  },
-  "devDependencies": {
-    "eslint": "^3.9.1",
-    "eslint-config-airbnb": "^13.0.0",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.7.1",
-    "serverless": "^1.3.0"
   }
 }
