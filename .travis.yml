@@ -1,0 +1,20 @@
+
+language: node_js
+
+cache:
+    directories:
+        - node_modules
+
+env:
+    global:
+        - NODE_ENV=production
+        - secure: G9uGabl/pe+qmKxsugpD0a2WoF9K1dBzZfauKUwdYF7obgeS5aPxe7VTOW50mwT2vMh/kAy2Gdsc4/Broz/uptp5NMdPQSAeOWjM5hDg+LXYJWouiiQ6A8Qr9Ugey2mQet41aIs/xk34rJiZ8T0zqk6ID9VjFqfHRgxiKhsemP2IJMxOA2713+JqWLHLnnhS1WenAr9U+uP47aOwSy9CheJuMKwWs8F95PpCR9/eIiJN8Zkh6qYpCskBKrIK95IPj6bXFE7Y3tcVys2GBhaAYSVbtE5UVqKfw0rOH8RPpSTFANHO2Df96ZtbsaFBW1mQw4wx3uAwr616cM9V0CgpJ1ltAU+TW89x5nbP7XrsWXOl8tPELDu4kn0iee3z/uLBPf/wZxz8DX4nu/gwKd0RRkqGXSh6TnjXoOW1as8ZL7G2Gx1MGeiecrSOwLPZFzbh0AmM5dbdcfFett6J0m8sKiDqnsgvrR/9l6qMG+TKvfglSIYfVku9tXC8AGjJOUeCEW2RcI4EdsUzJZgq2DjfXu9T86sOIZZHAnj07MkBncvwVFOvcY0dzUIHCjo37ab+Q8Zsc86zICV6Pa6SW7TJOBrT1XdviW2hJtrHLLx9Mjaj49t/3tT0xLM1r7e46nIDgY2fx581u6nPkZbCZ6z8xx7oiekN0YsKgY4jAcJgPg4=
+        - secure: qevCpfQuU4VAkuiyDYF4BG+ZjS//WUii2JmSapPp1wn157vl+O3+KVwrfDB4/HqNCsWtBpZY4a8bxd8DsSJVAppYuorFqUUdyiGaV7h/AcR9tg9wVL1ncuQwirtdUkWqkprPQuEHUuNRlwTElrTEgKlh6IfM7yoY4eUSjR1von6fIkMX4PSG+aDsC1IoSyv+/1wGbrONkIZF/jdAzrQ1mm0xYRo1Rqi6F11cwDsVW+hgPBgC+xImNb4LLEEt388ABT0S44GSqKnQtYFwjuF32FBFcSRvRpDWzDpunT3dsCp16Fy0kQi3rnBRCWhZmy0ylIwXoJbZR4sYN9iBg8F5vMJkQsi8j+XYtwZ2+zsVhgVIoOGCm+JtbsQGKmyA2KyBrd7HIj0jxNkBuxTomWvKgeUKcWidC23MljnxqLfsjZB5V0fTFLkeKMCbUE1zaCBG41Bdl0RzVWyVgPPAcRBfaZIF6oq5bGK9dQyA48YivFOlCmYYsEgqLyb3NsLJQzrVlGp8cke1aJL9oMiS8IAJR1j2DOw18EiRWjVxz7ToaAQQYvtlGaKDzaJ8jGvM244VCAXvKkStwVLKAX9MI9cb4guWRDxiIiPWsN6pMVbp01PBN53gSXFHhmE5gtfRn6C+ub+HKHecgV6k0FHPcSjD23I9iZsKvEFD9lbgaQKMf0A=
+
+deploy:
+    provider: script
+    script: npm run deploy -- --stage prod
+    skip_cleanup: true
+    on:
+        branch:
+            - master

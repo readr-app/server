@@ -1,0 +1,29 @@
+
+service: readr-api-1
+
+
+package:
+    exclude:
+        - ./tests
+        - ./.*
+        - ./package.json
+        - ./README.md
+
+
+provider:
+    name: aws
+    stage: dev
+    runtime: nodejs4.3
+    region: eu-west-1
+    profile: readr
+
+
+functions:
+    fetchContents:
+        name: ${opt:stage}-fetch-contents
+        handler: fetch-contents/index.fetch
+        events:
+            - http:
+                method: post
+                path: /fetch-contents
+                cors: true
