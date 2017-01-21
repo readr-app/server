@@ -6,6 +6,7 @@ package:
     exclude:
         - ./tests
         - ./.*
+        - ./fetch
         - ./package.json
         - ./README.md
 

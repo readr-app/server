@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+const { fetch } = require('./fetch-contents/');
+const [,, url] = process.argv;
+
+if (typeof url !== 'string') {
+    console.warn(`
+Please pass in a URL:
+
+$ ./fetch http://example.com
+
+`);
+    process.exit(1);
+}
+
+fetch({
+    body: JSON.stringify({ url }),
+}, null, console.log.bind(console));
