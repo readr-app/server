@@ -1,48 +1,36 @@
 
+const jsdom = require('jsdom').jsdom;
+const Readability = require('readability/index').Readability;
 const cheerio = require('cheerio');
 const util = require('../util');
 
-const getTitle = $ => [
-    $('meta[property="og:title"]').eq(0).attr('content'),
-    $('meta[name="twitter:title"]').eq(0).attr('content'),
-    $('title').eq(0).text(),
-].reduce((prev, title) => {
-    if (typeof prev === 'string') {
-        return prev;
-    }
-    return title;
-}) || '';
+const createUri = (hostname, pathname) => ({
+    spec: `http://${hostname}/${pathname}`,
+    host: hostname,
+    prePath: `http://${hostname}`,
+    scheme: 'http',
+    pathBase: `http://${hostname}/${pathname.split('/').slice(0, -1).join('/')}`,
+});
 
-const getIntro = $ => [
-    $('meta[property="og:description"]'),
-    $('meta[name="twitter:description"]'),
-    $('meta[name="description"]'),
-].reduce((prev, $intro) => {
-    if (typeof prev === 'string') {
-        return prev;
-    }
-    return $intro.eq(0).attr('content');
-}) || '';
-
-const getContentWrap = ($) => {
-    // Get rid of parts we don't need at all.
-    $('header, aside, footer, form').remove();
-    const $openGraph = $('div[itemprop="articleBody"]');
-    const $generic = cheerio('<div></div>');
-    if ($openGraph.length) {
-        return util.basicManipulations($openGraph);
-    }
-    $('p').appendTo($generic);
-    return util.basicManipulations($generic);
-};
-
-exports.getContent = ($) => {
+exports.getContent = ($, hostname, pathname) => {
     const $wrap = cheerio('<div></div>');
-    const title = getTitle($).trim();
-    const intro = getIntro($).trim();
-    getContentWrap($)
-        .find('p')
-        .appendTo($wrap);
+    const doc = jsdom($.html(), {
+        features: {
+            FetchExternalResources: false,
+            ProcessExternalResources: false,
+        },
+    });
+    const uri = createUri(hostname, pathname);
+    const reader = new Readability(uri, doc);
+    const result = reader.parse();
+    const title = result.title;
+    const intro = '';
+    util.basicManipulations(
+        cheerio.load(result.content)('div.page'))
+            .find('p')
+            .removeAttr('style')
+            .removeAttr('class')
+            .appendTo($wrap);
     const content = $wrap.html();
     return { title, intro, content };
 };
