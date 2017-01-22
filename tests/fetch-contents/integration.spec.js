@@ -9,7 +9,7 @@ cases['http://www.volksstimme.de/lokal/schoenebeck/kreis-gegen-ameos-erster-stre
     id: '5059f5295cb7cecfed0e7beb60b98742',
     color: '#3f51b5',
     title: 'Erster Streit nun beigelegt',
-    intro: 'Etappensieg f�r den Salzlandkreis: Das Oberlandesgericht Naumburg hat ein wegweisendes Urteil gesprochen.',
+    intro: '',
 };
 
 cases['http://www.spiegel.de/politik/ausland/john-lewis-buergerrechtler-bezeichnet-trump-als-illegitimen-praesidenten-a-1130038.html'] = {
