@@ -43,17 +43,11 @@ const getSelectors = (pathname) => {
     throw Error('The contents of the given URL can not be fetched.');
 };
 
-const removeElems = selector => $content =>
-    $content
-        .find(selector)
-        .remove()
-        .end();
-
 const removeRubbish = compose(
-    removeElems('figure'),
-    removeElems('aside'),
-    removeElems('.bbccom_slot'),
-    removeElems('.inline-media'));
+    util.removeElems('figure'),
+    util.removeElems('aside'),
+    util.removeElems('.bbccom_slot'),
+    util.removeElems('.inline-media'));
 
 const prependHostname = hostname => (_, href) => {
     if (href.indexOf(hostname) > -1 || href.indexOf('http') === 0) {
@@ -67,7 +61,7 @@ exports.getContent = ($, hostname, pathname) => {
     const sel = getSelectors(pathname);
     const title = $(sel.title).eq(0).text().trim();
     const intro = $(sel.intro).eq(0).text().trim();
-    const $content = removeElems(sel.intro)(removeRubbish($(sel.content).eq(0)));
+    const $content = util.removeElems(sel.intro)(removeRubbish($(sel.content).eq(0)));
     util.basicManipulations($content)
         .find('a')
         .attr('href', prependHostname(hostname))

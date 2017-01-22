@@ -7,8 +7,8 @@ const HEADERS = {
     'Access-Control-Allow-Origin': '*',
 };
 
-const removeScripts = $content =>
-    $content.find('script').remove().end();
+const removeElems = exports.removeElems = selector => $content =>
+    $content.find(selector).remove().end();
 
 const removeAttrsFrom = (tag, attrs) => ($content) => {
     const $tag = $content.find(tag);
