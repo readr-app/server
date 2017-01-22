@@ -83,6 +83,8 @@ exports.basicManipulations = compose(
         'shape',
         'data-link-name',
         'data-component',
+        'itemscope',
+        'itemprop',
     ]),
     setAttributesTo('a', {
         target: '_blank',
@@ -94,6 +96,6 @@ exports.basicManipulations = compose(
         'data-para-count',
         'data-total-count',
     ]),
-    removeScripts,
-    removeEmptyParagraphs
-);
+    removeElems('script'),
+    removeElems('meta'),
+    removeEmptyParagraphs);
