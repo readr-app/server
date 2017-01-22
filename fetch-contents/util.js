@@ -7,8 +7,8 @@ const HEADERS = {
     'Access-Control-Allow-Origin': '*',
 };
 
-const removeScripts = $content =>
-    $content.find('script').remove().end();
+const removeElems = exports.removeElems = selector => $content =>
+    $content.find(selector).remove().end();
 
 const removeAttrsFrom = (tag, attrs) => ($content) => {
     const $tag = $content.find(tag);
@@ -83,6 +83,8 @@ exports.basicManipulations = compose(
         'shape',
         'data-link-name',
         'data-component',
+        'itemscope',
+        'itemprop',
     ]),
     setAttributesTo('a', {
         target: '_blank',
@@ -94,6 +96,6 @@ exports.basicManipulations = compose(
         'data-para-count',
         'data-total-count',
     ]),
-    removeScripts,
-    removeEmptyParagraphs
-);
+    removeElems('script'),
+    removeElems('meta'),
+    removeEmptyParagraphs);
