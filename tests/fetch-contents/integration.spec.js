@@ -112,9 +112,9 @@ Object.keys(cases).forEach((url) => {
             t.equal(result.statusCode, 200, 'The status code is 200');
             const response = JSON.parse(result.body);
             ['id', 'color', 'title', 'intro'].forEach((key) => {
-                t.ok(typeof response[key] === 'string', `They property "${key}" exists.`);
+                t.ok(typeof response[key] === 'string', `The property "${key}" exists.`);
                 t.equal(response[key].trim(), item[key],
-                    `They content of the property "${key}" is correct.`);
+                    `The content of the property "${key}" is correct.`);
             });
             t.ok(response.content.trim().length > 0, 'The content is not empty.');
             setImmediate(t.end.bind(t));
