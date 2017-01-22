@@ -76,6 +76,30 @@ cases['https://www.washingtonpost.com/powerpost/what-to-do--and-what-not-to-do--
     intro: '',
 };
 
+cases['http://www.bbc.com/news/world-us-canada-38707722'] = {
+    name: 'BBC.com/news',
+    id: '8e4e09d7f5ec4c51cce21659570e8d65',
+    color: '#BB1919',
+    title: 'Trump claims media \'dishonest\' over crowd photos',
+    intro: 'President Donald Trump has accused the media of dishonesty over the number of people attending his inauguration.',
+};
+
+cases['http://www.bbc.com/sport/tennis/38709479'] = {
+    name: 'BBC.com/sport',
+    id: 'e40c702f665c853d66a4c44df9e67834',
+    color: '#BB1919',
+    title: 'Australian Open 2017: Andy Murray suffers shock defeat by Mischa Zverev',
+    intro: 'Andy Murray\'s hopes of winning a first Australian Open title ended with a shock defeat by world number 50 Mischa Zverev of Germany in the fourth round.',
+};
+
+cases['http://www.bbc.com/culture/story/20160908-the-language-rules-we-know-but-dont-know-we-know'] = {
+    name: 'BBC.com/misc',
+    id: 'ab29ee9cae8330980058c2042c9d199c',
+    color: '#BB1919',
+    title: 'The language rules we know – but don’t know we know',
+    intro: 'Mark Forsyth tasted internet fame this week when a passage from a book he wrote went viral. He explains more language secrets that native speakers know without knowing.',
+};
+
 Object.keys(cases).forEach((url) => {
     const item = cases[url];
     const arg = { body: JSON.stringify({ url }) };
