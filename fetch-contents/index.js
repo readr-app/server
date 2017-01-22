@@ -11,12 +11,12 @@ const STATUS_OK = 'OK';
 
 const STATUS_ERROR = 'Error';
 
-const getArticleContent = (hostname, $) => {
+const getArticleContent = ($, hostname, pathname) => {
     const tests = getTests();
     const source = sources.find((_, name) =>
         tests[name](hostname));
     if (source) {
-        return source.getContent($, hostname);
+        return source.getContent($, hostname, pathname);
     }
     return sources.generic.getContent($);
 };
@@ -47,7 +47,7 @@ exports.fetch = (event, context, callback) => {
             status: STATUS_OK,
             color: getArticleColor(articleHostname),
             id: md5Hash(articlePathname),
-        }, getArticleContent(articleHostname, $))));
+        }, getArticleContent($, articleHostname, articlePathname))));
 
     });
 
