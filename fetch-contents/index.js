@@ -18,7 +18,7 @@ const getArticleContent = ($, hostname, pathname) => {
     if (source) {
         return source.getContent($, hostname, pathname);
     }
-    return sources.generic.getContent($);
+    return sources.generic.getContent($, hostname, pathname);
 };
 
 exports.fetch = (event, context, callback) => {
