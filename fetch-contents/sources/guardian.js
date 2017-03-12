@@ -14,7 +14,7 @@ exports.getContent = ($) => {
     const intro = $('meta[itemprop="description"]')
         .eq(0).attr('content').trim();
     util.basicManipulations($('div[itemprop="articleBody"]'))
-        .find('p')
+        .find('p, h2')
         .removeAttr('class')
         .appendTo($wrap);
     const content = $wrap.html();
