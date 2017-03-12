@@ -12,7 +12,7 @@ exports.getContent = ($, hostname) => {
     const $wrap = cheerio('<div></div>');
     const title = $('h1').eq(0).text().trim();
     const intro = $('.article-intro').eq(0).text().trim();
-    util.basicManipulations($('div[itemprop="articleBody"]'))
+    util.basicManipulations($('.article-section').eq(0))
         .find('a')
         .attr('href', (i, href) =>
             `//${hostname}${href}`)
