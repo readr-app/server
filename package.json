@@ -5,25 +5,17 @@
   "scripts": {
     "lint": "eslint ./",
     "spec": "tape ./tests/**/*.spec.js",
-    "test": "npm run lint && npm run spec",
-    "deploy": "serverless deploy"
+    "test": "npm run lint && npm run spec"
   },
   "author": "Emanuel Kluge",
   "license": "Beerware",
   "dependencies": {
-    "cheerio": "^0.22.0",
     "eslint": "^3.9.1",
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.7.1",
-    "jsdom": "^9.9.1",
-    "md5": "^2.2.1",
-    "ramda": "^0.22.1",
-    "readability": "mozilla/readability#15e1f0326181c9cd96cf1cda3d1695641cc915bd",
-    "request": "^2.79.0",
-    "require-all": "^2.1.0",
-    "serverless": "^1.8.0",
+    "firebase-tools": "^3.5.0",
     "tape": "^4.6.3"
   }
 }
