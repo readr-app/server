@@ -6,7 +6,8 @@
     "postinstall": "cd ./functions && npm i && cd ..",
     "lint": "eslint ./",
     "spec": "tape ./tests/**/*.spec.js",
-    "test": "npm run lint && npm run spec"
+    "test": "npm run lint && npm run spec",
+    "deploy": "firebase deploy --only function"
   },
   "author": "Emanuel Kluge",
   "license": "Beerware",
