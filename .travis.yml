@@ -11,7 +11,7 @@ env:
 
 deploy:
     provider: script
-    script: npm run deploy -- --token $FIREBASE_TOKEN
+    script: $(npm bin)/firebase deploy --only=function --token=$FIREBASE_TOKEN
     skip_cleanup: true
     on:
         branch:
