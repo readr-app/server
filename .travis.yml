@@ -7,11 +7,11 @@ cache:
 
 env:
     global:
-        - secure: "KD9TocaXaFSGruQapMGwmX5MiQfC5Mm8GHGb/jbKmUTyyPKA4TpPS2GwsnzzDLZnXk6L3B9fRfwnl5lDjGcX7SVcVNI3E9zXWqYS31DBDaDHXyHO/rj9RMsL9940SmHjohdLQS1WiUFzHKQqtkPyoValbMW7B12OjvNOPxRyh1QAu/Mhb2xC2lDIItJGGBW5lDLmcAYlWa8dKDSFux8muvjErHsPwugqcDihm07fNVuTBZW1P6nb1PgWPPTB5vYjKG2qvVGFxav38aVKccWC5WAaySrv66T6vOU00eYph8i8Ja8s/flxHJ5WgbCbs9sBoS4/x6TJ0RZ0IM7GMAf1oyu0SXjUvr7ZXfLU9BljbB/zicNF1QZ7OnSs20f5smviMemG9pezsuK0wepw9BJZugav/+y/9ljlrlZRvGyjlswrLM3J3b+1kTvZXLUmAXJftj+cK+UN9jEySkjgdtaudXAjLTOL3nvQITEy+wed5pWq3O7aldfhH/7YanoXcmDrbQteqWveBbrac5yzaEHXt/cukypRc++4Kdv6BhUBKkNY1CpW0F2wdObkuaV+DOxdKZAb1PkV7xb8tIj793F9HvphdhvXsq9PX+dlsPo7PlWOCV5EdHUFGJR4x+rgTk2gBsXbfY7fL6uZdwCUz+ia9KgmJZDVI34YlvodGqydK3c="
+        - secure: "EfYIFW8Fj17gtaES80wMhoVk+nUo++Hjbc8DNlb/bXOCukerRNJ/v4tpWTZgTmbb4ladrbiMvhEKHwdQzcsHupkRVM3rrm1gDEUUM60aWhwVAOh+9E8b6j2g2RNyKndvxIDOCOblvqRNofoz1yHQ2MbqZos8y74Tu+fR1IZ01aEWaUxMgauMVdDlMHMh2v6hd2GV3XUDxw2tcIafMOeuROsu68qnA74ZSgPxUT3ekEPkQR31eLU19xLDqTII0H6/wfOKoIw1EtF4meCHJr0PBjHBa7C1D+9DuaTdT27vq0GiX74XDZTWM8mLj3/iRT3RjgBkKokuOgj0sYL6/jsKRx8l9Fuujrh9M4c4YXhnOKAnwyIViwEiwd6Xt59SHGfbk/b34Dk4E+D43Wchn66d2OVVSkMA+rOGhypc0t2xntUYdePULBgwGdLgMyvFPWiGuI8awdET+H0tlxnxN7LxBmntc6Gdif7mOBX6mqc1mwxm7hQdDzQWtEdWgF+5jP95Soyhqi9M/35SXPJL3zlGYsMyQrSI2puBtHtMoQkqnWXWAmGdCEw/lJyBFLUuGcbhiXBwOTyNaKq0yjONSEba/RxIOhyt4VQl+NG+OMoO2glyoByFU9E9aY0f5C5Qsv4R0dZU/3ZCBo8RXOElT9Q9m0UasxB5RbCkm9GZNKKC1a0="
 
 deploy:
     provider: script
-    script: npm run deploy -- --token=${FIREBASE_TOKEN}
+    script: npm run deploy
     skip_cleanup: true
     on:
         branch:
