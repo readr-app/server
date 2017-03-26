@@ -5,10 +5,12 @@ cache:
     directories:
         - node_modules
 
+env:
+    global:
+        - secure: o0W59TbjihUoCPaydqwcXegB0xpY/heaYkmWE1chmiSBTuUvw9Q8WWTVaJ3sRY2PTx4tvJznWlZYu/Z8oCeHZhW0YdSUZSJ42RdLJulgfNd/uH/sn3pix/H3x6NfYu7CLOlXTKC/xev2c/yYktdcCKcT6nJ5nOAbCwLyT9jiuMGuwzWovYRFUl2izdYnUwyqjT+nkV3m3sFYIxHG6/FQY8dqoekMqgp6jwQCFAV/2zkWaip1T3skUlGbCVH9+Gh0oypOOrfn76/+LKAqjsRUkKoR8OZKGZ4oGLteKtKhAzrSDnbmUpwB5YJJ3jr/JHao5tY7vJT9KG/bQJeiA2TKYRnC1PzQ0tAOacPggtaLJWWQ9h6pIihCEp9MBORTTjBz+xh771nq1iYKYds95dmpBG+wPqAtL+TDwV5q5kq7H29OwJTIanGaKtLZtoaV0F5UVuQQpGYMwLvv0cEPmto0uitc1Fee0MiByH5aDDp/oL/6t8FHCMPmZbMgF18DG+SjUjOKlUmXWjAJ/osp3kuULC36JrQgFMhaIF3h3LoYKuduO/PVfvM4bF33fJxE97CYoPXZlMC69n/QuQUPilR5FtXHyTPmfFTwfk0E5YaX67WATieheraWHnaEWQEGM+02UwtRs+4oGNA/awVi6sKeki0KH4Cr/WqMTAn2eJkie4E=
 deploy:
-    provider: firebase
-    token:
-        secure: o0W59TbjihUoCPaydqwcXegB0xpY/heaYkmWE1chmiSBTuUvw9Q8WWTVaJ3sRY2PTx4tvJznWlZYu/Z8oCeHZhW0YdSUZSJ42RdLJulgfNd/uH/sn3pix/H3x6NfYu7CLOlXTKC/xev2c/yYktdcCKcT6nJ5nOAbCwLyT9jiuMGuwzWovYRFUl2izdYnUwyqjT+nkV3m3sFYIxHG6/FQY8dqoekMqgp6jwQCFAV/2zkWaip1T3skUlGbCVH9+Gh0oypOOrfn76/+LKAqjsRUkKoR8OZKGZ4oGLteKtKhAzrSDnbmUpwB5YJJ3jr/JHao5tY7vJT9KG/bQJeiA2TKYRnC1PzQ0tAOacPggtaLJWWQ9h6pIihCEp9MBORTTjBz+xh771nq1iYKYds95dmpBG+wPqAtL+TDwV5q5kq7H29OwJTIanGaKtLZtoaV0F5UVuQQpGYMwLvv0cEPmto0uitc1Fee0MiByH5aDDp/oL/6t8FHCMPmZbMgF18DG+SjUjOKlUmXWjAJ/osp3kuULC36JrQgFMhaIF3h3LoYKuduO/PVfvM4bF33fJxE97CYoPXZlMC69n/QuQUPilR5FtXHyTPmfFTwfk0E5YaX67WATieheraWHnaEWQEGM+02UwtRs+4oGNA/awVi6sKeki0KH4Cr/WqMTAn2eJkie4E=
+    provider: script
+    script: npm run deploy
     skip_cleanup: true
     on:
         branch:
