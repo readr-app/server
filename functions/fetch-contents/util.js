@@ -3,10 +3,6 @@ const cheerio = require('cheerio');
 const compose = require('ramda/src/compose');
 const getTests = require('./tests');
 
-const HEADERS = {
-    'Access-Control-Allow-Origin': '*',
-};
-
 const removeElems = exports.removeElems = selector => $content =>
     $content.find(selector).remove().end();
 
@@ -31,14 +27,6 @@ const removeEmptyParagraphs = $content => $content
     .remove()
     .end()
     .end();
-
-exports.getArticleUrl = (event) => {
-    try {
-        return JSON.parse(event.body).url;
-    } catch (e) {
-        return null;
-    }
-};
 
 exports.getCompleteViewUrl = (articleUrl, hostname) => {
     /* eslint "prefer-template": 0 */
@@ -67,12 +55,6 @@ exports.getCompleteViewUrl = (articleUrl, hostname) => {
     }
     return articleUrl;
 };
-
-exports.getResponse = body => ({
-    statusCode: 200,
-    headers: HEADERS,
-    body: JSON.stringify(body),
-});
 
 /* eslint "comma-dangle": 0 */
 exports.basicManipulations = compose(

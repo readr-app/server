@@ -1,6 +1,6 @@
 
 const test = require('tape');
-const { supportedSources } = require('../../functions/');
+const supportedSources = require('../../functions/supported-sources/');
 
 const expected = [
     'BBC.com',
@@ -14,10 +14,7 @@ const expected = [
     'Zeit.de',
 ];
 
-test('#supportedSources', ({ deepEqual, end }) =>
-    // eslint-disable-next-line no-sparse-arrays
-    supportedSources(...[,, (_, { body }) => {
-        const { sources } = JSON.parse(body);
-        deepEqual(sources, expected);
-        end();
-    }]));
+test('#supportedSources', ({ deepEqual, end }) => {
+    deepEqual(supportedSources(), expected);
+    end();
+});

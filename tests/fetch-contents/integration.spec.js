@@ -1,6 +1,6 @@
 
 const test = require('tape');
-const { fetchContents } = require('../../functions/');
+const fetchContents = require('../../functions/fetch-contents/');
 
 const cases = {};
 
@@ -102,15 +102,12 @@ cases['http://www.bbc.com/culture/story/20160908-the-language-rules-we-know-but-
 
 Object.keys(cases).forEach((url) => {
     const item = cases[url];
-    const arg = { body: JSON.stringify({ url }) };
     test(`#${item.name}`, (t) => {
-        fetchContents(arg, null, (err, result) => {
+        fetchContents(url, (err, response) => {
             if (err) {
                 t.end(err);
                 return;
             }
-            t.equal(result.statusCode, 200, 'The status code is 200');
-            const response = JSON.parse(result.body);
             ['id', 'color', 'title', 'intro'].forEach((key) => {
                 t.ok(typeof response[key] === 'string', `The property "${key}" exists.`);
                 t.equal(response[key].trim(), item[key],
