@@ -5,11 +5,13 @@ cache:
     directories:
         - node_modules
 
+env:
+    global:
+        - secure: "KD9TocaXaFSGruQapMGwmX5MiQfC5Mm8GHGb/jbKmUTyyPKA4TpPS2GwsnzzDLZnXk6L3B9fRfwnl5lDjGcX7SVcVNI3E9zXWqYS31DBDaDHXyHO/rj9RMsL9940SmHjohdLQS1WiUFzHKQqtkPyoValbMW7B12OjvNOPxRyh1QAu/Mhb2xC2lDIItJGGBW5lDLmcAYlWa8dKDSFux8muvjErHsPwugqcDihm07fNVuTBZW1P6nb1PgWPPTB5vYjKG2qvVGFxav38aVKccWC5WAaySrv66T6vOU00eYph8i8Ja8s/flxHJ5WgbCbs9sBoS4/x6TJ0RZ0IM7GMAf1oyu0SXjUvr7ZXfLU9BljbB/zicNF1QZ7OnSs20f5smviMemG9pezsuK0wepw9BJZugav/+y/9ljlrlZRvGyjlswrLM3J3b+1kTvZXLUmAXJftj+cK+UN9jEySkjgdtaudXAjLTOL3nvQITEy+wed5pWq3O7aldfhH/7YanoXcmDrbQteqWveBbrac5yzaEHXt/cukypRc++4Kdv6BhUBKkNY1CpW0F2wdObkuaV+DOxdKZAb1PkV7xb8tIj793F9HvphdhvXsq9PX+dlsPo7PlWOCV5EdHUFGJR4x+rgTk2gBsXbfY7fL6uZdwCUz+ia9KgmJZDVI34YlvodGqydK3c="
+
 deploy:
-    provider: firebase
-    token:
-        secure: sguN2HMf9Mcvb+6goJXBT63Dc+nWrJ3pJBnDKjtJWwFDFvTtm4Y/fd1Bq/9LTSuh6PDkSqRfWdMf1jxOMXWrXxGoQTA6Y8yFHgg1s/bUqYaU0bbFZPvAviGfxsaYcWhhcWf8Y/GxclASnUmFh3FI8HG/NnVuFjoGIkWScKsHlKqVmc6IUcfHTvxNYu5WTMsMeSB8b7lkoxeMsMHWX+D31me5H42DhEhc/X1CDKRJ8KEpxa8aUF+S2W6+i3ICj9EFGGr3+2/LKNSzZWSDLv04Led1RKhXx0UP1qUPxWZVWswVReQV80XmZbWSePJP3B5+8s0q9gIvMMHGMLslhw0EBshbIrpsnV5HsROhwogWu/jtgGYZu/g3n0VGxdv8QV/Zvi8HtipeHRFLxNXtnM2D6cFdnZ3Wp9nPuWvc8EBEydU1E2FznohZPlqzl+WzdHFBHT5Go55/mCJxtNPmIm9ExXDx0LZuM3Fd1XTFtg2aNizZ6ETxACpGiQkqzVdpNxPsZt8pLIartaNLGveso2Nv0ejc7ex2bdiiOmaxI+mkEofjsQpm40TWgMXFVTslw9meiB9xkuZfC7JCwJB8H4Nc9SNqfPk95+0KPOQjXeDE7hKbdsx//xG6LKgGvSc971q1LreqJE1pFhe4sTgsmxXNGybJjVfsAqnkM1AyATRImz4=
-    project: readr-60929
+    provider: script
+    script: npm run deploy -- --token=${FIREBASE_TOKEN}
     skip_cleanup: true
     on:
         branch:
