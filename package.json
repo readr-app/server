@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Save articles and read them later when offline.",
   "scripts": {
+    "postinstall": "cd ./functions && npm i && cd ..",
     "lint": "eslint ./",
     "spec": "tape ./tests/**/*.spec.js",
     "test": "npm run lint && npm run spec"
