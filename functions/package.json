@@ -1,0 +1,30 @@
+{
+  "name": "readr-server-firebase",
+  "version": "0.1.0",
+  "description": "Save articles and read them later when offline.",
+  "scripts": {
+    "start": "functions start",
+    "stop": "functions stop",
+    "clear": "functions clear",
+    "deploy": "functions deploy",
+    "debug": "functions debug",
+    "call": "functions call",
+    "logs": "functions logs read",
+    "help": "functions --help"
+  },
+  "author": "Emanuel Kluge",
+  "license": "Beerware",
+  "dependencies": {
+    "@google-cloud/functions-emulator": "^1.0.0-alpha.15",
+    "cheerio": "^0.22.0",
+    "cors": "^2.8.1",
+    "firebase-admin": "^4.1.3",
+    "firebase-functions": "^0.5.3",
+    "jsdom": "^9.9.1",
+    "md5": "^2.2.1",
+    "ramda": "^0.22.1",
+    "readability": "mozilla/readability#15e1f0326181c9cd96cf1cda3d1695641cc915bd",
+    "request": "^2.79.0",
+    "require-all": "^2.1.0"
+  }
+}
