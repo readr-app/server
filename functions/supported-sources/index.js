@@ -10,9 +10,4 @@ const sortList = (a, b) => {
     return lcA < lcB ? -1 : 1;
 };
 
-exports.list = (_, __, callback) => callback(null, {
-    statusCode: 200,
-    body: JSON.stringify({
-        sources: sources.names.sort(sortList),
-    }),
-});
+module.exports = () => sources.names.sort(sortList);

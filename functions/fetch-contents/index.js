@@ -21,16 +21,15 @@ const getArticleContent = ($, hostname, pathname) => {
     return sources.generic.getContent($, hostname, pathname);
 };
 
-exports.fetch = (event, context, callback) => {
+module.exports = (articleUrl, callback) => {
 
     const getArticleColor = getColors();
-    const articleUrl = util.getArticleUrl(event);
 
     if (!articleUrl) {
-        return callback(null, util.getResponse({
+        return callback(null, {
             status: STATUS_ERROR,
-            message: 'Please provide an article-URL',
-        }));
+            body: 'Please provide an article-URL',
+        });
     }
 
     const urlParts = url.parse(articleUrl);
@@ -43,11 +42,11 @@ exports.fetch = (event, context, callback) => {
             return callback(err);
         }
 
-        return callback(null, util.getResponse(Object.assign({
+        return callback(null, Object.assign({
             status: STATUS_OK,
             color: getArticleColor(articleHostname),
             id: md5Hash(articlePathname),
-        }, getArticleContent($, articleHostname, articlePathname))));
+        }, getArticleContent($, articleHostname, articlePathname)));
 
     });
 

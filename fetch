@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const fetch = require('./fetch-contents/').fetch;
+const fetchContents = require('./functions/fetch-contents/');
 const url = process.argv[2];
 
 if (!url) {
@@ -13,6 +13,4 @@ $ ./fetch http://example.com
     process.exit(1);
 }
 
-fetch({
-    body: JSON.stringify({ url }),
-}, null, console.log.bind(console));
+fetchContents(url, console.log.bind(console));
