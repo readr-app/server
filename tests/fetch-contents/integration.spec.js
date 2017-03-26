@@ -1,6 +1,6 @@
 
 const test = require('tape');
-const fetchContents = require('../../fetch-contents/');
+const { fetchContents } = require('../../functions/');
 
 const cases = {};
 
@@ -104,7 +104,7 @@ Object.keys(cases).forEach((url) => {
     const item = cases[url];
     const arg = { body: JSON.stringify({ url }) };
     test(`#${item.name}`, (t) => {
-        fetchContents.fetch(arg, null, (err, result) => {
+        fetchContents(arg, null, (err, result) => {
             if (err) {
                 t.end(err);
                 return;
